@@ -1,0 +1,332 @@
+{
+  "info": {
+    "name": "AI Insurance Advisory Platform",
+    "description": "API collection for testing insurance advisory and policy recommendation platform",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "http://localhost:8000/health"
+      }
+    },
+    {
+      "name": "Root",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "http://localhost:8000/"
+      }
+    },
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "List Users",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "http://localhost:8000/users?skip=0&limit=10"
+          }
+        },
+        {
+          "name": "Create User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"john.doe@example.com\",\n  \"name\": \"John Doe\",\n  \"age\": 35,\n  \"health_status\": \"Good\"\n}"
+            },
+            "url": "http://localhost:8000/users"
+          }
+        },
+        {
+          "name": "Create User 2",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"jane.smith@example.com\",\n  \"name\": \"Jane Smith\",\n  \"age\": 42,\n  \"health_status\": \"Fair\"\n}"
+            },
+            "url": "http://localhost:8000/users"
+          }
+        },
+        {
+          "name": "Get User by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "http://localhost:8000/users/1"
+          }
+        },
+        {
+          "name": "Update User",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"john.doe.updated@example.com\",\n  \"name\": \"John Doe Updated\",\n  \"age\": 36,\n  \"health_status\": \"Excellent\"\n}"
+            },
+            "url": "http://localhost:8000/users/1"
+          }
+        },
+        {
+          "name": "Delete User",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "http://localhost:8000/users/1"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Policies",
+      "item": [
+        {
+          "name": "List Active Policies",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "http://localhost:8000/policies?skip=0&limit=10"
+          }
+        },
+        {
+          "name": "Create Health Policy",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"policy_name\": \"Premium Health Plan Plus\",\n  \"policy_type\": \"Health\",\n  \"coverage_amount\": 500000,\n  \"monthly_premium\": 450,\n  \"description\": \"Comprehensive health insurance with hospitalization, surgery, and diagnostic coverage\"\n}"
+            },
+            "url": "http://localhost:8000/policies"
+          }
+        },
+        {
+          "name": "Create Life Policy",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"policy_name\": \"Life Secure Plan\",\n  \"policy_type\": \"Life\",\n  \"coverage_amount\": 1000000,\n  \"monthly_premium\": 300,\n  \"description\": \"Term life insurance providing financial security to family\"\n}"
+            },
+            "url": "http://localhost:8000/policies"
+          }
+        },
+        {
+          "name": "Create Auto Policy",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"policy_name\": \"Auto Protect Plus\",\n  \"policy_type\": \"Auto\",\n  \"coverage_amount\": 300000,\n  \"monthly_premium\": 150,\n  \"description\": \"Comprehensive auto insurance covering third-party and own damage\"\n}"
+            },
+            "url": "http://localhost:8000/policies"
+          }
+        },
+        {
+          "name": "Create Property Policy",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"policy_name\": \"Home Guardian\",\n  \"policy_type\": \"Property\",\n  \"coverage_amount\": 2000000,\n  \"monthly_premium\": 200,\n  \"description\": \"Property insurance covering structural damage, theft, and natural disasters\"\n}"
+            },
+            "url": "http://localhost:8000/policies"
+          }
+        },
+        {
+          "name": "Get Policy by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "http://localhost:8000/policies/1"
+          }
+        },
+        {
+          "name": "Get Policies by Type",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "http://localhost:8000/policies/type/Health"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Recommendations",
+      "item": [
+        {
+          "name": "Create Recommendation",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user_id\": 1,\n  \"policy_id\": 1,\n  \"recommendation_score\": 85.5,\n  \"reason\": \"Based on age and health status, this comprehensive health plan is ideal for you\"\n}"
+            },
+            "url": "http://localhost:8000/recommendations"
+          }
+        },
+        {
+          "name": "Create Recommendation 2",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user_id\": 1,\n  \"policy_id\": 2,\n  \"recommendation_score\": 90.0,\n  \"reason\": \"Life insurance is essential for your age group to protect family\"\n}"
+            },
+            "url": "http://localhost:8000/recommendations"
+          }
+        },
+        {
+          "name": "Get User Recommendations",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "http://localhost:8000/recommendations/user/1"
+          }
+        },
+        {
+          "name": "Accept Recommendation",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": "http://localhost:8000/recommendations/1/accept"
+          }
+        },
+        {
+          "name": "Reject Recommendation",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": "http://localhost:8000/recommendations/2/reject"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Advisory",
+      "item": [
+        {
+          "name": "Get User Advisory",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "http://localhost:8000/advisory/1"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Claims",
+      "item": [
+        {
+          "name": "File Claim",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user_id\": 1,\n  \"policy_id\": 1,\n  \"claim_amount\": 50000,\n  \"description\": \"Hospital treatment for emergency care\"\n}"
+            },
+            "url": "http://localhost:8000/claims"
+          }
+        },
+        {
+          "name": "Get Claim",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "http://localhost:8000/claims/1"
+          }
+        },
+        {
+          "name": "Get User Claims",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "http://localhost:8000/claims/user/1"
+          }
+        },
+        {
+          "name": "Update Claim Status to Approved",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": "http://localhost:8000/claims/1/status?status=Approved"
+          }
+        },
+        {
+          "name": "Update Claim Status to Rejected",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": "http://localhost:8000/claims/1/status?status=Rejected"
+          }
+        }
+      ]
+    }
+  ]
+}
