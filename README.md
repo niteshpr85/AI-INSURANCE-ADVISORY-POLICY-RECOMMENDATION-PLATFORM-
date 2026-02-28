@@ -51,6 +51,22 @@ This project implements a comprehensive insurance advisory system that:
    - Interactive Docs (Swagger): http://localhost:8000/docs
    - Alternative Docs (ReDoc): http://localhost:8000/redoc
 
+## Deploy on Render
+
+1. Push this repository to GitHub.
+2. Sign in to Render and click **New +** -> **Blueprint**.
+3. Connect your GitHub repository.
+4. Render will detect `render.yaml` automatically.
+5. Click **Apply** to deploy.
+
+After deploy:
+- App URL: `https://<your-service>.onrender.com`
+- Health check: `https://<your-service>.onrender.com/health`
+- Swagger docs: `https://<your-service>.onrender.com/docs`
+
+Note:
+- This project uses SQLite (`insurance.db`). On free cloud instances, filesystem data may reset on redeploy/restart.
+
 ## 📁 Project Structure
 
 ```
