@@ -708,6 +708,18 @@
             alert.className = `alert ${type}`;
             setTimeout(() => alert.className = 'alert', 3000);
         }
+
+        function clearFields(fieldIds) {
+            fieldIds.forEach((fieldId) => {
+                const element = document.getElementById(fieldId);
+                if (!element) return;
+                if (element.tagName === 'SELECT') {
+                    element.selectedIndex = 0;
+                } else {
+                    element.value = '';
+                }
+            });
+        }
         
         // Load Dashboard
         async function loadDashboard() {
@@ -745,7 +757,7 @@
                 
                 if (response.ok) {
                     showAlert('user-alert', '✅ User created successfully!', 'success');
-                    document.querySelector('.form-container').reset();
+                    clearFields(['user-email', 'user-name', 'user-age', 'user-health']);
                     loadUsers();
                 } else {
                     showAlert('user-alert', '❌ Error creating user', 'error');
@@ -799,7 +811,7 @@
                 
                 if (response.ok) {
                     showAlert('policy-alert', '✅ Policy created successfully!', 'success');
-                    document.querySelector('.form-container').reset();
+                    clearFields(['policy-name', 'policy-type', 'policy-coverage', 'policy-premium', 'policy-description']);
                     loadPolicies();
                 } else {
                     showAlert('policy-alert', '❌ Error creating policy', 'error');
@@ -852,7 +864,7 @@
                 
                 if (response.ok) {
                     showAlert('claim-alert', '✅ Claim filed successfully!', 'success');
-                    document.querySelector('.form-container').reset();
+                    clearFields(['claim-user-id', 'claim-policy-id', 'claim-amount', 'claim-description']);
                     loadClaims();
                 } else {
                     showAlert('claim-alert', '❌ Error filing claim', 'error');
