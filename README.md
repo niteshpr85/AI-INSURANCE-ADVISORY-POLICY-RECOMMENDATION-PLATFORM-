@@ -10,6 +10,8 @@ This project implements a comprehensive insurance advisory system that:
 - Generates AI-powered policy recommendations based on user profiles
 - Delivers personalized insurance advisory
 - Handles insurance claims processing and status tracking
+  <img width="1918" height="846" alt="image" src="https://github.com/user-attachments/assets/55d8ccd6-c572-4219-9bb0-640b6cb989e7" />
+
 
 ## ⚙️ Technology Stack
 
